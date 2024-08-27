@@ -21,19 +21,13 @@ function App() {
 
   return (
     <>
-      
-      <h1>Vite + React</h1>
+
+      <h1>React Loadscreen UI</h1>
       <div className="card">
         <button onClick={handleSubmit}>
-          count
+          Loadscreen
         </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }

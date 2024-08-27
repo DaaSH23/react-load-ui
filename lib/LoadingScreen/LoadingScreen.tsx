@@ -1,8 +1,22 @@
+import React from 'react';
 import { useLoading } from './LoadingContext';
-import './LoadingScreen.css';
+import './styles.css';
 
+export interface LoadingScreenProps {
+  text?: string;
+  spinner?: boolean;
+  spinnerSize?: number;
+  backgroundColor?: string;
+  textColor?: string;
+}
 
-export const LoadingScreen = ({text}: {text: string}) => {
+export const LoadingScreen: React.FC<LoadingScreenProps> = ({
+  text = "Loading...",
+  spinner = true,
+  spinnerSize = 30,
+  backgroundColor = 'rgba(0, 0, 0, 0.5)',
+  textColor = '#fff',
+}) => {
   const { isLoading } = useLoading();
 
   if (!isLoading) {
@@ -10,10 +24,21 @@ export const LoadingScreen = ({text}: {text: string}) => {
   }
 
   return (
-    <div className="loading-screen">
-      <div className="loadingText">{text}</div>
+    <div className='loading-screen' style={{ backgroundColor: backgroundColor }}>
+      <div className='loading-content'>
+        {spinner && (
+          <div
+            className="spinner"
+            style={{ width: spinnerSize, height: spinnerSize }}
+          ></div>
+        )}
+        <div className='loading-text-container'>
+          <div
+            className="loadingText"
+            style={{ color: textColor }}
+          >{text}</div>
+        </div>
+      </div>
     </div>
   );
 };
-
-export default LoadingScreen;

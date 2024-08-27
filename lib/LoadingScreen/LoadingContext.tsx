@@ -1,4 +1,4 @@
-import {createContext, ReactNode, useContext, useState} from "react";
+import React, {createContext, ReactNode, useContext, useState} from "react";
 
 export interface LoadingContextProps {
     isLoading: Boolean;
